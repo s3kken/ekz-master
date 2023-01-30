@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Личный кабинет</h3>
+  <div>
+    {% if user.avatar %}
+        <p><img src="{{user.avatar.url}}"></p>
+    {% else %}
+       <p></p>
+    {% endif %}
+      <p>{{ user.username }}</p>
+      <div>
+            {% if product_list %}
+                {% for product in product_list %}
+                    {{ product.name }}<br>
+                    <a href="{% url 'product' product.pk %}">Подробная информация о товаре</a>
+                    <img src="{{ product.image.url }}"><br>
+                {% endfor %}
+            {% else %}
+                <p> нет товаров</p>
+            {% endif %}
+      </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h3>Заказать товар</h3>
+    <form action="" method="post" enctype="multipart/form-data">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <button type="submit">Заказать</button>
+    </form>
+
+{% endblock %}

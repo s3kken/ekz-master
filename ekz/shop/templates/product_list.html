@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Каталог</h3>
+{% if products %}
+    {% for product in products %}
+        {{ product.name }}<br>
+        <a href="{% url 'product' product.pk %}">Подробная информация о товаре</a>
+        <img src="{{ product.image.url }}"><br>
+    {% endfor %}
+{% else %}
+    <p> нет товаров</p>
+{% endif %}
+{% endblock %}

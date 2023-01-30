@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>Описание фирмы</p><br>
+
+{% if product_list %}
+    {% for product in product_list %}
+        {{ product.name }}<br>
+        <a href="{% url 'product' product.pk %}">Подробная информация о товаре</a>
+        <img src="{{ product.image.url }}"><br>
+    {% endfor %}
+{% else %}
+    <p> нет товаров</p>
+{% endif %}
+{% endblock %}
